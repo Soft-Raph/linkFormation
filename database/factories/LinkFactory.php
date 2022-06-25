@@ -10,8 +10,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class LinkFactory extends Factory
 {
+    protected $model = Link::class;
 
-    protected  $model=Link::class;
     /**
      * Define the model's default state.
      *

@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Link;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class LinksTableSeeder extends Seeder
@@ -15,6 +14,6 @@ class LinksTableSeeder extends Seeder
      */
     public function run()
     {
-      Link::factory()->count(5)->create();
+        Link::factory()->count(5)->create();
     }
 }

@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/', function (){
+Route::get('/', function () {
     $links = \App\Models\Link::all();
 
     return view('welcome', ['links'=>$links]);
@@ -26,19 +26,19 @@ Route::get('/', function (){
 //    return view('welcome')->withLinks($links);
 //    return view('welcome')->with('links', $links);
 });
-Route::post('/submit', function (Request $request){
-    $data = validator([
-       'title'=>'required|max:225',
+Route::post('/submit', function (Request $request) {
+    $data = $request->validator([
+        'title'=>'required|max:225',
         'url'=>'required|url|max:225',
         'description'=>'required|max:225',
     ]);
 //    $link = tap(new \App\Models\Link($data))->save();
 //    return $link;
     $link = new \App\Models\Link();
-    $link->title= $data['title'];
+    $link->title = $data['title'];
     $link->url = $data['url'];
-    $link->description= $data['description'];
+    $link->description = $data['description'];
     $link->save();
-return $link;
 
+    return $link;
 });
